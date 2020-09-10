@@ -14,13 +14,15 @@
     </el-container>
   </el-container> -->
   <div class="layout">
-     <div class="layout-asidebox" ref="asidebox">
-     </div>
-     <div class="layout-aside" ref="aside">
+     <div class="layout-asidebox" ref="asidebox" :class="toggle?'wd':'wd-in'">
+            <div class="layout-aside" ref="aside" :class="toggle?'move':'move-in'">
        <div class="layout-aside-logo"></div>
         <sider-menu :list="list" ></sider-menu>
      </div>
-     <div class="layout-main">
+     </div>
+
+     <div class="layout-main "  :style="{width}"
+     >
         <div class="layout-main-header">  
           <my-header  @toggle="toggleEvent"></my-header>
         </div>
@@ -44,7 +46,8 @@ export default {
     return {
       list: [],
 
-      // isCollapse: false
+      // isCollapse: false,
+       toggle: false,
     };
   },
   mounted() {
@@ -56,14 +59,13 @@ export default {
       // this.isCollapse = !this.isCollapse;
     },
     toggleEvent(toggle){
-      if(!toggle){
-        this.$refs.asidebox.style.width = 0+'px'
-        this.$refs.aside.style.transform = 'translate(-200px,0px)'
-      }else{
-        this.$refs.asidebox.style.width = 200+'px'
-        this.$refs.aside.style.transform = 'translate(0px,0px)'
-      }
+      this.toggle = toggle
     }
+  },
+  computed: {
+      width(){
+          return this.toggle? '100%': 'calc(100% - 200px)'
+      }
   }
 };
 </script>
@@ -79,32 +81,33 @@ export default {
 
 .layout {
   width:100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
+  flex-direction: row;
   position: relative;
 
   &-asidebox{
-    width: 200px;
+
+    
     background: #fff;
-    transition: .5s ease;
+  position: relative;
   }
   &-aside{
-    width: 200px;
- 
-    position: absolute;
+    height: 100%;
+    background: #fff;
+ position: absolute;
     left: 0;
     top: 0;
-    z-index:1;
-    height: 100%;
-    transition: .5s ease;
 
     &-logo{
       height: 60px;
     }
   }
   &-main{
-    flex:1;
-   
+      transition: .2s ease;
+  /* height: 100%; */
+  background: yellowgreen;
+    // width: 100%;
     display: flex;
     flex-direction: column;
     &-header {
@@ -119,6 +122,31 @@ export default {
     }
 
   }
+
+  .move {
+    transform: translate(-200px,0px);
+
+    transition: .2s ease;
+ }
+   .move-in {
+    transform: translate(0px,0px);
+ 
+    transition: .3s ease;
+ }
+.wd {
+
+    width: 0px;
+    transition: .2s ease;
 }
+.wd-in{
+
+      transition: .2s ease;
+    width: 200px;
+}
+
+
+}
+
+
 </style>
 

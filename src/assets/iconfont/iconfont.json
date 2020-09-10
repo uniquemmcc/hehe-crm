@@ -1,0 +1,30 @@
+{
+  "id": "2037459",
+  "name": "hehe-crm",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1304878",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "7339836",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "1420367",
+      "name": "滑动",
+      "font_class": "huadong",
+      "unicode": "e83e",
+      "unicode_decimal": 59454
+    }
+  ]
+}
