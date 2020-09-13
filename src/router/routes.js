@@ -10,6 +10,7 @@ export const routes = [
         path: '*',
         component: () => import(/* webpackChunkName: "error404" */ '../views/error404.vue')
       },
+
       {
         path: '/',
         name: 'layout',
@@ -64,6 +65,7 @@ export const routes = [
               {
                 path: '/permiss',
                 name: 'permiss',
+                redirect:'/permiss/organ',
                 meta:{
                   title: '权限管理',
                   icon: 'permiss'
@@ -105,6 +107,12 @@ export const routes = [
                 ]
               }
         ]
+      },
+      {
+        path: '/test',
+                    name: 'test',
+                    
+                    component: () => import(/* webpackChunkName: "Test" */ '../views/Test.vue')
       },
       
   ]

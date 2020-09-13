@@ -74,11 +74,19 @@ export default {
     };
   },
   methods: {
-    handleOpen() {},
+    handleOpen(index) {
+      console.log(index)
+       this.$router.push({
+        name: index
+      })
+    },
     handleClose() {},
     handleSelect(index) {
       console.log(index);
       this.currentIndex = index;
+      this.$router.push({
+        name: index
+      })
     }
   },
   watch: {
